@@ -37,8 +37,7 @@ void CSceneMain::Init()
 	
 	//ダイクストラ法初期化
 	g_Route.Init(MAP_Z,MAP_X);
-
-
+	
 	//音量設定
 	g_Audio.MasterVolume(0.8f);
 
@@ -89,6 +88,5 @@ void CSceneMain::LoadMesh()
 	g_Loader.LoadMesh(Model_Enemy_Blue, "EnemyBlue.obj");
 	g_Loader.LoadMesh(Model_Enemy_Orange, "EnemyOrange.obj");
 	g_Loader.LoadMesh(Model_Enemy_Pink, "EnemyPink.obj");
-
 	g_Loader.LoadMesh(Model_Enemy_Run, "EnemyRun.obj");
 }

@@ -251,7 +251,10 @@ void CAudio::Delete()
 	}
 
 	//マスターボイスの破棄
-	m_pMasteringVoice->DestroyVoice();
+	if (m_pMasteringVoice != nullptr)
+	{
+		m_pMasteringVoice->DestroyVoice();
+	}
 
 	//XAudio2インタフェースの破棄
 	m_pXAudio2->Release();

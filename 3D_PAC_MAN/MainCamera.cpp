@@ -38,7 +38,7 @@ void CMainCamera::Update()
 {
 
 	//視点チェンジ
-	if (g_input.GetTriggerKeyPush('K') == true)
+	if (g_input.GetTriggerKeyPush(VK_SPACE) == true)
 	{
 		if (m_bLookingDown == true)
 		{

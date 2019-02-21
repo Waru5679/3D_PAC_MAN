@@ -56,17 +56,16 @@ void PlayerHit(OBB_Data obb,  bool run)
 	//イジケ状態でないとき
 	if (run == false)
 	{
+		//プレイヤーに当たったならゲームオーバーシーンへ
 		vector<HIT_DATA> HitData;
 		HitData = g_Obb.ObjNameHit(&obb, OBJ_PLAYER);
 
 		if (HitData.size() > 0)
 		{
-			g_Audio.StopMusic(Audio_Stage);
-			
 			//ダメージ音
 			g_Audio.StartMusic(Audio_Damage);
 			
-			g_Scene.SetScene(SceneTitle);
+			g_Scene.SetScene(SceneGameOver);
 		}
 	}
 }

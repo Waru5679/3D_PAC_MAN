@@ -30,6 +30,6 @@ void CGameOverBackGround::Update()
 
 void CGameOverBackGround::Draw()
 {
-	CFont::DrawStr(L"Push_Enter", 100, 300, 40);
+	CFont::DrawStr(L"Enter‚Åƒ^ƒCƒgƒ‹‚Ö", 100, 300, 40);
 	CFont::DrawStr(L"GAME_OVER", 25, 100, 64);
 }

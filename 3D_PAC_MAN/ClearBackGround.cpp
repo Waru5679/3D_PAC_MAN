@@ -25,37 +25,12 @@ void CClearBackGround::Init()
 
 void CClearBackGround::Update()
 {
-	if (g_input.GetKeyPush(VK_RIGHT) == true)
-	{
-		m_ScreenPos.x += 1.0f;
-	}
-	if (g_input.GetKeyPush(VK_LEFT) == true)
-	{
-		m_ScreenPos.x -= 1.0f;
-	}
-	if (g_input.GetKeyPush(VK_UP) == true)
-	{
-		m_ScreenPos.y -= 1.0f;
-	}
-	if (g_input.GetKeyPush(VK_DOWN) == true)
-	{
-		m_ScreenPos.y += 1.0f;
-	}
-
 }
 
 void CClearBackGround::Draw()
 {
-	RECT_F Out;
-
-	Out.m_left = m_ScreenPos.x;
-	Out.m_top = m_ScreenPos.y;
-	Out.m_right = Out.m_left + WINDOW_WIDTH;
-	Out.m_bottom = Out.m_top + WINDOW_HEIGHT;
-
-	//”wŒi•`‰æ
-//	g_Draw.Draw2D(0, &Out);
 
 	CFont::DrawStr(L"CLEAR", 100, 100, 64);
+	CFont::DrawStr(L"Enter‚Åƒ^ƒCƒgƒ‹‚Ö", 100, 400, 40);
 
 }

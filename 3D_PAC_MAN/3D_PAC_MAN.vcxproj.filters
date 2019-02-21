@@ -126,9 +126,6 @@
     <ClInclude Include="Food.h">
       <Filter>ゲーム依存ファイル\Main\Food</Filter>
     </ClInclude>
-    <ClInclude Include="MainCamera.h">
-      <Filter>ゲーム依存ファイル\Main</Filter>
-    </ClInclude>
     <ClInclude Include="SceneClear.h">
       <Filter>ゲーム依存ファイル\Clear</Filter>
     </ClInclude>
@@ -200,6 +197,9 @@
     </ClInclude>
     <ClInclude Include="Trace.h">
       <Filter>オリジナルライブラリ\Trace</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCamera.h">
+      <Filter>ゲーム依存ファイル\Main\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,7 @@ void CTitleBackGround::Update()
 void CTitleBackGround::Draw()
 {
 
-	CFont::DrawStr(L"Push_Enter", 150, 430, 40);
+	CFont::DrawStr(L"Enterでスタート", 150, 430, 40);
 
 	RECT_F Out;
 	Out.m_left = m_ScreenPos.x;

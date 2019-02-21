@@ -15,7 +15,7 @@ public:
 private:
 	
 	D3DXVECTOR3 m_vPlayerPos;	//プレイヤーの位置
-	D3DXVECTOR3 m_vPlayerDir;		//プレイヤーの方向
+	D3DXVECTOR3 m_vPlayerDir;	//プレイヤーの方向
 	D3DXVECTOR3 m_vFront;		//プレイヤーの正面方向
 	
 	float m_fCameraDis;		//プレイヤーとカメラの距離
