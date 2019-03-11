@@ -39,7 +39,7 @@ void CEnemyPink::Init()
 	m_pPlayer = nullptr;
 
 	//マップのアドレス
-	m_pMap = dynamic_cast<CMap*> (g_Task.Get3DObj(OBJ_MAP));
+	m_pMap = dynamic_cast<CMap*> (g_Task.GetObj(OBJ_MAP));
 
 	//休憩状態
 	m_bRest = true;
@@ -95,7 +95,7 @@ void CEnemyPink::Update()
 	//プレイヤーのアドレス取得
 	if (m_pPlayer == nullptr)
 	{
-		m_pPlayer = dynamic_cast<CPlayer*> (g_Task.Get3DObj(OBJ_PLAYER));
+		m_pPlayer = dynamic_cast<CPlayer*> (g_Task.GetObj(OBJ_PLAYER));
 	}
 	
 	//プレイヤーのパワー状態を調べる

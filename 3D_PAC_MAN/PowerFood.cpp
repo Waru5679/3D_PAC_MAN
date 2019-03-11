@@ -43,7 +43,7 @@ void CPowerFood::Update()
 	//プレイヤーのアドレス取得
 	if (m_pPlayer == nullptr)
 	{
-		m_pPlayer = dynamic_cast<CPlayer*> (g_Task.Get3DObj(OBJ_PLAYER));
+		m_pPlayer = dynamic_cast<CPlayer*> (g_Task.GetObj(OBJ_PLAYER));
 	}
 
 	vector<HIT_DATA> HitData;

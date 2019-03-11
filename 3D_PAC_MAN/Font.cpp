@@ -1,6 +1,7 @@
 #include "Font.h"
 #include "DirectX.h"
 #include "Math.h"
+
 HFONT		CFont::m_hFont;		//フォントハンドル(論理)
 HFONT		CFont::m_oldFont;	//フォントハンドル(物理)
 HDC			CFont::m_hdc;		//ディスプレイデバイスコンテキストのハンドル
@@ -41,9 +42,9 @@ void CCharClass::CreateCharTex(wchar_t c, HDC hdc, TEXTMETRIC TM)
 	memset(&desc, 0, sizeof(desc));
 	desc.MipLevels = 1;
 	desc.ArraySize = 1;
-	desc.Format	= DXGI_FORMAT_R8G8B8A8_UNORM;	//テクスチャフォーマットR8G8B8の24Bit
-	desc.SampleDesc.Count = 1;					//サンプリングは1ピクセルのみ
-	desc.Usage = D3D10_USAGE_DYNAMIC;			//CPU書き込み可能
+	desc.Format	= DXGI_FORMAT_R8G8B8A8_UNORM;		//テクスチャフォーマットR8G8B8の24Bit
+	desc.SampleDesc.Count = 1;						//サンプリングは1ピクセルのみ
+	desc.Usage = D3D10_USAGE_DYNAMIC;				//CPU書き込み可能
 	desc.BindFlags = D3D10_BIND_SHADER_RESOURCE;	//シェーダリソース
 	desc.CPUAccessFlags = D3D10_CPU_ACCESS_WRITE;	//CPUから書き込みアクセス可
 	desc.Height = 32;			
@@ -173,7 +174,7 @@ void CFont::Init()
 }
 
 //削除
-void CFont::Delete()
+void CFont::Release()
 {
 	list_char_tex->clear();
 	DeleteObject(m_oldFont);

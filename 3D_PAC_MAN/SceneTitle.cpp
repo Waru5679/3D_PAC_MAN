@@ -22,19 +22,21 @@ void CSceneTitle::Init()
 	LoadMesh();
 
 	//カメラ
-	CTitleCamera* camera = new CTitleCamera();
-	g_Task.InsertCamera(camera,0);
+	CTitleCamera* pCamera = new CTitleCamera();
+	g_Task.InsertObj(pCamera,OBJ_TITLE_CAMERA);
 
 	//シェーダにカメラセット
-	g_Shader.SetCamera(camera);
-
+	g_Shader.SetCamera(pCamera);
+	//2D描画用カメラセット
+	g_Draw.SetCamera(pCamera);
+	
 	//背景オブジェクト
 	D3DXVECTOR3 Pos(0.0f, 0.0f, 0.0f);
 	D3DXVECTOR3 Angle(0.0f, 0.0f, 0.0f);
 	D3DXVECTOR3 Scale(1.0f, 1.0f, 0.0f);
 	
 	CTitleBackGround* back = new CTitleBackGround(Pos, Angle, Scale);
-	g_Task.Insert2DObj(back, 0);
+	g_Task.InsertObj(back, 0);
 
 }
 

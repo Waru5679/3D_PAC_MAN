@@ -51,7 +51,8 @@ MY_Pos EnemyRun(MY_Pos next, int Start_x, int Start_y, int Goal_x, int Goal_y,CM
 	return next;
 }
 
-void PlayerHit(OBB_Data obb,  bool run)
+//プレイヤーとの当たり判定
+void PlayerHit(OBB_Data obb, bool run)
 {
 	//イジケ状態でないとき
 	if (run == false)
@@ -64,7 +65,8 @@ void PlayerHit(OBB_Data obb,  bool run)
 		{
 			//ダメージ音
 			g_Audio.StartMusic(Audio_Damage);
-			
+		
+			//ゲームオーバーシーンへ
 			g_Scene.SetScene(SceneGameOver);
 		}
 	}

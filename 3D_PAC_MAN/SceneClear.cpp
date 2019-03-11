@@ -22,11 +22,13 @@ void CSceneClear::Init()
 	LoadMesh();
 
 	//カメラ
-	CClearCamera* camera = new CClearCamera();
-	g_Task.InsertCamera(camera, 0);
+	CClearCamera* pCamera = new CClearCamera();
+	g_Task.InsertObj(pCamera, OBJ_CLEAR_CAMERA);
 
 	//シェーダにカメラセット
-	g_Shader.SetCamera(camera);
+	g_Shader.SetCamera(pCamera);
+	//2D描画用カメラセット
+	g_Draw.SetCamera(pCamera);
 
 	//背景オブジェクト
 	D3DXVECTOR3 Pos(0.0f, 0.0f, 0.0f);
@@ -34,7 +36,7 @@ void CSceneClear::Init()
 	D3DXVECTOR3 Scale(1.0f, 1.0f, 0.0f);
 
 	CClearBackGround* back = new CClearBackGround(Pos, Angle, Scale);
-	g_Task.Insert2DObj(back, 0);
+	g_Task.InsertObj(back, 0);
 
 }
 

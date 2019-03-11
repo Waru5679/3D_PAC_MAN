@@ -1,11 +1,11 @@
 #pragma once
+#include "CObj.h"
 
 //継承用　カメラクラス
-class Camera
+class Camera :public CObj
 {
+	void Draw() {};
 public:
-	virtual void Init()=0;	//初期化
-	virtual void Update()=0;	//更新
 
 	D3DXMATRIX GetWorldMatrix() { return m_matWorld; }
 	D3DXMATRIX GetViewMatrix() { return m_matView; }

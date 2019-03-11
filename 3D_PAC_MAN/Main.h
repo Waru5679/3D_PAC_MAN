@@ -19,7 +19,6 @@ void LoadScene();
 
 //ウインドウ名
 static WCHAR szAppName[] = L"ライブラリ";
-//static char szAppName[] = "ライブラリ";
 
 //初めのシーン
 #define START_SCENE SceneTitle
@@ -42,7 +41,10 @@ enum ObjName
 	OBJ_ENEMY_BLUE,
 	OBJ_ENEMY_ORANGE,
 	OBJ_ENEMY_PINK,
-	OBJ_CAMERA,
+	OBJ_MAIN_CAMERA,
+	OBJ_CLEAR_CAMERA,
+	OBJ_GAMEOVER_CAMERA,
+	OBJ_TITLE_CAMERA,
 };
 
 //音楽

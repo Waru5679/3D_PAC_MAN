@@ -33,6 +33,7 @@ protected:
 	bool m_bEat;//食べられた
 };
 
+//プレイヤーとのヒット確認
 void PlayerHit(OBB_Data obb,bool run);
 
 //イジケ状態での移動

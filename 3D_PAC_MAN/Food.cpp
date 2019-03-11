@@ -47,7 +47,7 @@ void CFood::Update()
 		g_Audio.StartMusic(Audio_Food_Get);
 
 		//餌のカウント減らす
-		CMap* map = dynamic_cast<CMap*>(g_Task.Get3DObj(OBJ_MAP));
+		CMap* map = dynamic_cast<CMap*>(g_Task.GetObj(OBJ_MAP));
 		map->CountAdd(-1);
 		
 		//自身を削除

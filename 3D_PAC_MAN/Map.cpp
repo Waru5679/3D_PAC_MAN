@@ -112,7 +112,6 @@ void CMap::Draw()
 	//カウント描画
 	CFont::DrawStr(L"餌残り:", 0.0f, 0.0f, 40.0f);
 	CFont::DrawStr(str, 160.0f, 0.0f, 40.0f);
-
 }
 
 //生成関数
@@ -138,7 +137,7 @@ void CMap::Create()
 						Scale = D3DXVECTOR3(20.0f, 20.0f, 20.0f);
 						
 						CWall* wall = new CWall(Pos, Angle, Scale);
-						g_Task.Insert3DObj(wall, OBJ_WALL);
+						g_Task.InsertObj(wall, OBJ_WALL);
 						
 						break;
 					}
@@ -149,7 +148,7 @@ void CMap::Create()
 						Scale = D3DXVECTOR3(0.5f,0.5f, 0.5f);
 						
 						CPlayer* obj = new CPlayer(Pos, Angle, Scale);
-						g_Task.Insert3DObj(obj, OBJ_PLAYER);
+						g_Task.InsertObj(obj, OBJ_PLAYER);
 
 						//生成したら空にする
 						m_map[y][x][z] = NONE;
@@ -164,7 +163,7 @@ void CMap::Create()
 						Scale = D3DXVECTOR3(0.5f, 0.5f, 0.5f);
 
 						CFood* obj = new CFood(Pos, Angle, Scale);
-						g_Task.Insert3DObj(obj, OBJ_FOOD);
+						g_Task.InsertObj(obj, OBJ_FOOD);
 
 						//生成したら空にする
 						m_map[y][x][z] = NONE;
@@ -181,7 +180,7 @@ void CMap::Create()
 						Scale = D3DXVECTOR3(0.8f, 0.8f, 0.8f);
 
 						CPowerFood* obj = new CPowerFood(Pos, Angle, Scale);
-						g_Task.Insert3DObj(obj, OBJ_POWER_FOOD);
+						g_Task.InsertObj(obj, OBJ_POWER_FOOD);
 
 						//生成したら空にする
 						m_map[y][x][z] = NONE;
@@ -195,7 +194,7 @@ void CMap::Create()
 						Scale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
 
 						CEnemyRed* obj = new CEnemyRed(Pos, Angle, Scale);
-						g_Task.Insert3DObj(obj, OBJ_ENEMY_RED);
+						g_Task.InsertObj(obj, OBJ_ENEMY_RED);
 						
 						//生成したら空にする
 						m_map[y][x][z] = NONE;
@@ -209,7 +208,7 @@ void CMap::Create()
 						Scale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
 
 						CEnemyBlue* obj = new CEnemyBlue(Pos, Angle, Scale);
-						g_Task.Insert3DObj(obj, OBJ_ENEMY_BLUE);
+						g_Task.InsertObj(obj, OBJ_ENEMY_BLUE);
 
 						//生成したら空にする
 						m_map[y][x][z] = NONE;
@@ -223,7 +222,7 @@ void CMap::Create()
 						Scale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
 
 						CEnemyOrange* obj = new CEnemyOrange(Pos, Angle, Scale);
-						g_Task.Insert3DObj(obj, OBJ_ENEMY_ORANGE);
+						g_Task.InsertObj(obj, OBJ_ENEMY_ORANGE);
 
 						//生成したら空にする
 						m_map[y][x][z] = NONE;
@@ -237,7 +236,7 @@ void CMap::Create()
 						Scale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
 
 						CEnemyPink* obj = new CEnemyPink(Pos, Angle, Scale);
-						g_Task.Insert3DObj(obj, OBJ_ENEMY_PINK);
+						g_Task.InsertObj(obj, OBJ_ENEMY_PINK);
 
 						//生成したら空にする
 						m_map[y][x][z] = NONE;

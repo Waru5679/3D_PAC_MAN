@@ -28,9 +28,6 @@ public:
 	//生成関数
 	void Create();
 
-	//ゲームオーバー
-	//void SetGameOver() { m_bGameOver = true; }
-
 	//カウント追加
 	void CountAdd(int n) { m_feedCount += n; }
 

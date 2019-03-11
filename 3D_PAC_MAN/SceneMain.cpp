@@ -21,15 +21,18 @@ void CSceneMain::Init()
 		
 	//マップ
 	CMap* map = new CMap();
-	g_Task.Insert3DObj(map, OBJ_MAP);
+	g_Task.InsertObj(map, OBJ_MAP);
 	map->Create();
 
 	//カメラ
-	CMainCamera* camera = new CMainCamera();
-	g_Task.InsertCamera(camera, 0);
+	CMainCamera* pCamera = new CMainCamera();
+	g_Task.InsertObj(pCamera, OBJ_MAIN_CAMERA);
 	
 	//シェーダーにカメラセット
-	g_Shader.SetCamera(camera);
+	g_Shader.SetCamera(pCamera);
+	
+	//2D描画用カメラセット
+	g_Draw.SetCamera(pCamera);
 	
 	D3DXVECTOR3 Pos(0.0f, 0.0f, 0.0f);
 	D3DXVECTOR3 Angle(0.0f, 0.0f, 0.0f);
@@ -59,8 +62,8 @@ void CSceneMain::Draw()
 
 void CSceneMain::Release()
 {
-	g_Task.Release();
-	g_Audio.Delete();
+	g_Task.Release();	//オブジェクトデータ破棄
+	g_Audio.DeleteMusic();//音楽データ破棄
 }
 
 //音楽

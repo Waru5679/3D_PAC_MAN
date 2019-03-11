@@ -5,8 +5,10 @@
 #include "DirectX.h"
 #include "Task.h"
 #include "Main.h"
+#include "Shader.h"
 #include "Polygon.h"
 #include "Font.h"
+#include "Audio.h"
 
 #include "SceneMain.h"
 #include "SceneTitle.h"
@@ -21,9 +23,10 @@ HWND g_hWnd=NULL;
 //関数プロトタイプの宣言
 LRESULT CALLBACK WndProc(HWND,UINT,WPARAM,LPARAM);
 
+//ウインドウの初期設定
 void WinInit(HINSTANCE hInst)
 {
-	// ウィンドウの初期化
+	// ウィンドウの設定
 	WNDCLASSEX  wndclass;
 
 	wndclass.cbSize = sizeof(wndclass);
@@ -40,6 +43,7 @@ void WinInit(HINSTANCE hInst)
 	wndclass.hIconSm = LoadIcon(NULL, IDI_ASTERISK);
 	RegisterClassEx(&wndclass);
 
+	//ウインドウ作成
 	g_hWnd = CreateWindow(szAppName, szAppName, WS_OVERLAPPEDWINDOW,
 		0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, NULL, NULL, hInst, NULL);
 	ShowWindow(g_hWnd, SW_SHOW);
@@ -58,12 +62,20 @@ INT WINAPI WinMain( HINSTANCE hInst,HINSTANCE hPrevInst,LPSTR szStr,INT iCmdShow
 		return 0;
 	}
 
-	
+	//シェーダー初期化
+	if (FAILED(g_Shader.Init(dx.m_pDevice)))
+	{
+		return E_FAIL;
+	}
+
 	//描画の初期化
 	g_Draw.Init();
 
 	//フォント描画初期化
 	CFont::Init();
+
+	//音楽初期化
+	g_Audio.Init();
 	
 	// メッセージループ
 	MSG msg;
@@ -78,7 +90,7 @@ INT WINAPI WinMain( HINSTANCE hInst,HINSTANCE hPrevInst,LPSTR szStr,INT iCmdShow
 	//fps制御
 	DWORD startTime = GetTickCount();
 	DWORD nowTime = 0;
-
+	
 	while( msg.message!=WM_QUIT )
 	{
 		if( PeekMessage( &msg, NULL, 0U, 0U, PM_REMOVE ) )
@@ -88,9 +100,12 @@ INT WINAPI WinMain( HINSTANCE hInst,HINSTANCE hPrevInst,LPSTR szStr,INT iCmdShow
 	    }
 	    else
 		{
-			float ClearColor[4] = { 0,0,0,1 }; // クリア色作成　RGBAの順
-			dx.m_pDevice->ClearRenderTargetView(dx.m_pRenderTargetView, ClearColor);//画面クリア 
-			dx.m_pDevice->ClearDepthStencilView(dx.m_pDepthStencilView, D3D10_CLEAR_DEPTH, 1.0f, 0);//深度バッファクリア
+			//画面クリア (RGBA)
+			float ClearColor[4] = { 0.0f,0.0f,0.0f,1.0f };
+			dx.m_pDevice->ClearRenderTargetView(dx.m_pRenderTargetView,ClearColor);
+
+			//深度バッファクリア
+			dx.m_pDevice->ClearDepthStencilView(dx.m_pDepthStencilView, D3D10_CLEAR_DEPTH, 1.0f, 0);
 
 			nowTime = GetTickCount();
 
@@ -106,11 +121,17 @@ INT WINAPI WinMain( HINSTANCE hInst,HINSTANCE hPrevInst,LPSTR szStr,INT iCmdShow
 			//描画
 			g_Scene.Draw();
 
-			dx.m_pSwapChain->Present(0, 0);//画面更新（バックバッファをフロントバッファに）
+			//画面更新（バックバッファをフロントバッファに）
+			dx.m_pSwapChain->Present(0, 0);
 		}				
 	}
+
 	//メモリ解放
-	dx.Release();
+	g_Audio.Release();	
+	CFont::Release();
+	g_Draw.Release();
+	g_Shader.Release();
+	dx.Release();		
 	
 	return (INT)msg.wParam;
 }
@@ -144,19 +165,19 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMsg,WPARAM wParam,LPARAM lParam)
 void LoadScene()
 {
 	//メイン
-	CSceneMain* main = new CSceneMain();
-	g_Task.InsertScene(main, SceneMain);
+	CSceneMain* pMain = new CSceneMain();
+	g_Task.InsertScene(pMain, SceneMain);
 
 	//タイトル
-	CSceneTitle* Title = new CSceneTitle();
-	g_Task.InsertScene(Title, SceneTitle);
+	CSceneTitle* pTitle = new CSceneTitle();
+	g_Task.InsertScene(pTitle, SceneTitle);
 
 	//クリア
-	CSceneClear*Clear = new CSceneClear();
-	g_Task.InsertScene(Clear, SceneClear);
+	CSceneClear* pClear = new CSceneClear();
+	g_Task.InsertScene(pClear, SceneClear);
 
 	//ゲームオーバー
-	CSceneGameOver* GameOver = new CSceneGameOver();
-	g_Task.InsertScene(GameOver, SceneGameOver);
+	CSceneGameOver* pGame = new CSceneGameOver();
+	g_Task.InsertScene(pGame, SceneGameOver);
 }
 
