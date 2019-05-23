@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{89A0870D-E77B-4A3A-94CA-FA3D4E036E9E}</ProjectGuid>
     <RootNamespace>My3DPACMAN</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -70,16 +70,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\DirectX\SDK%28VisualStdio2017用%29\Include;$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\DirectX\SDK%28Jun2010%29\Lib\x86;$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\DirectX\SDK%28VisualStdio2017用%29\Include;$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\DirectX\SDK%28Jun2010%29\Lib\x86;$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
@@ -130,89 +130,86 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Audio.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="ClearBackGround.h" />
-    <ClInclude Include="ClearCamera.h" />
-    <ClInclude Include="CObj.h" />
-    <ClInclude Include="DirectX.h" />
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="EnemyBlue.h" />
-    <ClInclude Include="EnemyOrange.h" />
-    <ClInclude Include="EnemyPink.h" />
-    <ClInclude Include="EnemyRed.h" />
-    <ClInclude Include="Font.h" />
-    <ClInclude Include="Food.h" />
-    <ClInclude Include="GameOverBackGround.h" />
-    <ClInclude Include="GameOverCamera.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="Main.h" />
-    <ClInclude Include="MainCamera.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="Math.h" />
-    <ClInclude Include="Obb.h" />
-    <ClInclude Include="ObjLoader.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Polygon.h" />
-    <ClInclude Include="PowerFood.h" />
-    <ClInclude Include="Ray.h" />
-    <ClInclude Include="Route.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneClear.h" />
-    <ClInclude Include="SceneGameOver.h" />
-    <ClInclude Include="SceneMain.h" />
-    <ClInclude Include="SceneTitle.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="Task.h" />
-    <ClInclude Include="TitleBackGround.h" />
-    <ClInclude Include="TitleCamera.h" />
-    <ClInclude Include="Trace.h" />
-    <ClInclude Include="Wall.h" />
+    <ClInclude Include="Game\Clear\ClearBackGround.h" />
+    <ClInclude Include="Game\Clear\ClearCamera.h" />
+    <ClInclude Include="Game\Clear\SceneClear.h" />
+    <ClInclude Include="Game\GameOver\GameOverBackGround.h" />
+    <ClInclude Include="Game\GameOver\GameOverCamera.h" />
+    <ClInclude Include="Game\GameOver\SceneGameOver.h" />
+    <ClInclude Include="Game\Main\Enemy.h" />
+    <ClInclude Include="Game\Main\EnemyBlue.h" />
+    <ClInclude Include="Game\Main\EnemyOrange.h" />
+    <ClInclude Include="Game\Main\EnemyPink.h" />
+    <ClInclude Include="Game\Main\EnemyRed.h" />
+    <ClInclude Include="Game\Main\Food.h" />
+    <ClInclude Include="Game\Main\MainCamera.h" />
+    <ClInclude Include="Game\Main\Map.h" />
+    <ClInclude Include="Game\Main\Player.h" />
+    <ClInclude Include="Game\Main\PowerFood.h" />
+    <ClInclude Include="Game\Main\SceneMain.h" />
+    <ClInclude Include="Game\Main\Wall.h" />
+    <ClInclude Include="Game\Title\SceneTitle.h" />
+    <ClInclude Include="Game\Title\TitleBackGround.h" />
+    <ClInclude Include="Game\Title\TitleCamera.h" />
+    <ClInclude Include="LIbrary\Audio.h" />
+    <ClInclude Include="LIbrary\Camera.h" />
+    <ClInclude Include="LIbrary\CObj.h" />
+    <ClInclude Include="LIbrary\DirectX.h" />
+    <ClInclude Include="LIbrary\Font.h" />
+    <ClInclude Include="LIbrary\Input.h" />
+    <ClInclude Include="LIbrary\Main.h" />
+    <ClInclude Include="LIbrary\Math.h" />
+    <ClInclude Include="LIbrary\Obb.h" />
+    <ClInclude Include="LIbrary\ObjLoader.h" />
+    <ClInclude Include="LIbrary\Polygon.h" />
+    <ClInclude Include="LIbrary\Ray.h" />
+    <ClInclude Include="LIbrary\Route.h" />
+    <ClInclude Include="LIbrary\Scene.h" />
+    <ClInclude Include="LIbrary\Shader.h" />
+    <ClInclude Include="LIbrary\Task.h" />
+    <ClInclude Include="LIbrary\Trace.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Audio.cpp" />
-    <ClCompile Include="ClearBackGround.cpp" />
-    <ClCompile Include="ClearCamera.cpp" />
-    <ClCompile Include="DirectX.cpp" />
-    <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="EnemyBlue.cpp" />
-    <ClCompile Include="EnemyOrange.cpp" />
-    <ClCompile Include="EnemyPink.cpp" />
-    <ClCompile Include="EnemyRed.cpp" />
-    <ClCompile Include="Font.cpp" />
-    <ClCompile Include="Food.cpp" />
-    <ClCompile Include="GameOverBackGround.cpp" />
-    <ClCompile Include="GameOverCamera.cpp" />
-    <ClCompile Include="Input.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MainCamera.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Math.cpp" />
-    <ClCompile Include="Obb.cpp" />
-    <ClCompile Include="ObjLoader.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Polygon.cpp" />
-    <ClCompile Include="PowerFood.cpp" />
-    <ClCompile Include="Ray.cpp" />
-    <ClCompile Include="Route.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneClear.cpp" />
-    <ClCompile Include="SceneGameOver.cpp" />
-    <ClCompile Include="SceneMain.cpp" />
-    <ClCompile Include="SceneTitle.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="Task.cpp" />
-    <ClCompile Include="TitleBackGround.cpp" />
-    <ClCompile Include="TitleCamera.cpp" />
-    <ClCompile Include="Trace.cpp" />
-    <ClCompile Include="Wall.cpp" />
+    <ClCompile Include="Game\Clear\ClearBackGround.cpp" />
+    <ClCompile Include="Game\Clear\ClearCamera.cpp" />
+    <ClCompile Include="Game\Clear\SceneClear.cpp" />
+    <ClCompile Include="Game\GameOver\GameOverBackGround.cpp" />
+    <ClCompile Include="Game\GameOver\GameOverCamera.cpp" />
+    <ClCompile Include="Game\GameOver\SceneGameOver.cpp" />
+    <ClCompile Include="Game\Main\Enemy.cpp" />
+    <ClCompile Include="Game\Main\EnemyBlue.cpp" />
+    <ClCompile Include="Game\Main\EnemyOrange.cpp" />
+    <ClCompile Include="Game\Main\EnemyPink.cpp" />
+    <ClCompile Include="Game\Main\EnemyRed.cpp" />
+    <ClCompile Include="Game\Main\Food.cpp" />
+    <ClCompile Include="Game\Main\MainCamera.cpp" />
+    <ClCompile Include="Game\Main\Map.cpp" />
+    <ClCompile Include="Game\Main\Player.cpp" />
+    <ClCompile Include="Game\Main\PowerFood.cpp" />
+    <ClCompile Include="Game\Main\SceneMain.cpp" />
+    <ClCompile Include="Game\Main\Wall.cpp" />
+    <ClCompile Include="Game\Title\SceneTitle.cpp" />
+    <ClCompile Include="Game\Title\TitleBackGround.cpp" />
+    <ClCompile Include="Game\Title\TitleCamera.cpp" />
+    <ClCompile Include="LIbrary\Audio.cpp" />
+    <ClCompile Include="LIbrary\DirectX.cpp" />
+    <ClCompile Include="LIbrary\Font.cpp" />
+    <ClCompile Include="LIbrary\Input.cpp" />
+    <ClCompile Include="LIbrary\Main.cpp" />
+    <ClCompile Include="LIbrary\Math.cpp" />
+    <ClCompile Include="LIbrary\Obb.cpp" />
+    <ClCompile Include="LIbrary\ObjLoader.cpp" />
+    <ClCompile Include="LIbrary\Polygon.cpp" />
+    <ClCompile Include="LIbrary\Ray.cpp" />
+    <ClCompile Include="LIbrary\Route.cpp" />
+    <ClCompile Include="LIbrary\Scene.cpp" />
+    <ClCompile Include="LIbrary\Shader.cpp" />
+    <ClCompile Include="LIbrary\Task.cpp" />
+    <ClCompile Include="LIbrary\Trace.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Geometry_Material_Texture.fx">
+    <FxCompile Include="LIbrary\Geometry_Material_Texture.fx">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
