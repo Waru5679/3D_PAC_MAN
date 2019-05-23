@@ -3,7 +3,7 @@
 #include "../../LIbrary/CObj.h"
 
 //クリア背景　クラス
-class CClearBackGround :public CObj2D
+class CClearBackGround :public CObj3D
 {
 public:
 

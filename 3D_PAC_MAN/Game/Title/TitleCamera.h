@@ -9,6 +9,7 @@ class CTitleCamera:public Camera
 public:
 	void Init();	//‰Šú‰»
 	void Update();	//XV
+	void Draw();	//•`‰æ
 private:
 };
 

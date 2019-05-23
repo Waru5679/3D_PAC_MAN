@@ -20,9 +20,6 @@ CTitleBackGround::CTitleBackGround(D3DXVECTOR3 Pos, D3DXVECTOR3 Angle, D3DXVECTO
 //初期化
 void CTitleBackGround::Init()
 {
-	//スクリーン座標
-	m_ScreenPos = D3DXVECTOR2(0.0f, 0.0f);
-
 	D3DXMatrixIdentity(&m_matWorld);
 }
 
@@ -35,15 +32,15 @@ void CTitleBackGround::Update()
 //描画
 void CTitleBackGround::Draw()
 {
+	float Color[4] = { 1.0f,1.0f,1.0f,1.0f };
+	CFont::DrawStr(L"Enterでスタート", 150.0f, 430.0f, 40.0f,0.0f);
 
-	CFont::DrawStr(L"Enterでスタート", 150, 430, 40);
+	RECT_F Src,Out;
 
-	RECT_F Out;
-	Out.m_left = m_ScreenPos.x;
-	Out.m_top = m_ScreenPos.y;
-	Out.m_right = Out.m_left + WINDOW_WIDTH;
-	Out.m_bottom = Out.m_top + WINDOW_HEIGHT;
+	RectSet(0.0f, 0.0f, 512.0f, 512.0f, &Src);
+
+	RectSet(0.0f, 0.0f, WINDOW_WIDTH, WINDOW_HEIGHT, &Out);
 
 	//背景描画
-	g_Draw.Draw2D(0, &Out);
+	g_Draw.Draw2D(0, &Src, &Out, Color, 0.0f);
 }

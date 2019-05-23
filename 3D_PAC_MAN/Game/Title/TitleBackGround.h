@@ -2,7 +2,7 @@
 #include "../../LIbrary/CObj.h"
 
 //タイトル背景　クラス
-class CTitleBackGround :public CObj2D
+class CTitleBackGround :public CObj3D
 {
 public:
 	//コンストラクタ

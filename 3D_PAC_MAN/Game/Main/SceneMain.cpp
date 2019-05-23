@@ -71,9 +71,9 @@ void CSceneMain::Release()
 //音楽
 void CSceneMain::LoadAudio()
 {
-	g_Audio.Load(Audio_Stage	,"../../Audio/Stage.wav"	,true);
-	g_Audio.Load(Audio_Food_Get	,"../../Audio/FoodGet.wav"	, false);
-	g_Audio.Load(Audio_Damage	,"../../Audio/Damage.wav"	,false);
+	g_Audio.Load(Audio_Stage	,"Audio/Stage.wav"	,true);
+	g_Audio.Load(Audio_Food_Get	,"Audio/FoodGet.wav"	, false);
+	g_Audio.Load(Audio_Damage	,"Audio/Damage.wav"	,false);
 }
 
 //テクスチャ
@@ -85,13 +85,13 @@ void CSceneMain::LoadTexture()
 //メッシュ
 void CSceneMain::LoadMesh()
 {
-	g_Loader.LoadMesh(Model_Player		, "../../OBJ/Player.obj");
-	g_Loader.LoadMesh(Model_Wall		, "../../OBJ/Wall.obj");
-	g_Loader.LoadMesh(Model_Food		, "../../OBJ/Food.obj");
-	g_Loader.LoadMesh(Model_Power_Food	, "../../OBJ/PowerFood.obj");
-	g_Loader.LoadMesh(Model_Enemy_Red	, "../../OBJ/EnemyRed.obj");
-	g_Loader.LoadMesh(Model_Enemy_Blue	, "../../OBJ/EnemyBlue.obj");
-	g_Loader.LoadMesh(Model_Enemy_Orange, "../../OBJ/EnemyOrange.obj");
-	g_Loader.LoadMesh(Model_Enemy_Pink	, "../../OBJ/EnemyPink.obj");
-	g_Loader.LoadMesh(Model_Enemy_Run	, "../../OBJ/EnemyRun.obj");
+	g_Loader.LoadMesh(Model_Player		, "OBJ/Player.obj");
+	g_Loader.LoadMesh(Model_Wall		, "OBJ/Wall.obj");
+	g_Loader.LoadMesh(Model_Food		, "OBJ/Food.obj");
+	g_Loader.LoadMesh(Model_Power_Food	, "OBJ/PowerFood.obj");
+	g_Loader.LoadMesh(Model_Enemy_Red	, "OBJ/EnemyRed.obj");
+	g_Loader.LoadMesh(Model_Enemy_Blue	, "OBJ/EnemyBlue.obj");
+	g_Loader.LoadMesh(Model_Enemy_Orange, "OBJ/EnemyOrange.obj");
+	g_Loader.LoadMesh(Model_Enemy_Pink	, "OBJ/EnemyPink.obj");
+	g_Loader.LoadMesh(Model_Enemy_Run	, "OBJ/EnemyRun.obj");
 }

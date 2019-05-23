@@ -73,7 +73,7 @@ void CSceneTitle::LoadAudio()
 //テクスチャ
 void CSceneTitle::LoadTexture()
 {
-	g_Draw.LoadTexture(0, "../../Texture/Title.png");
+	g_Draw.LoadTexture(0, "Texture/Title.png",512,512);
 }
 
 //メッシュ

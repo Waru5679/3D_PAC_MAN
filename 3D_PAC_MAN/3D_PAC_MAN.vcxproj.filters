@@ -249,7 +249,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="LIbrary\Geometry_Material_Texture.fx">
+    <FxCompile Include="Geometry_Texture.fx">
       <Filter>オリジナルライブラリ</Filter>
     </FxCompile>
   </ItemGroup>

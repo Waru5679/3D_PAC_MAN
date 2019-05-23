@@ -217,6 +217,7 @@ HRESULT CObjLoader::LoadObj(const char* FileName, MY_MESH* pMesh)
 				{
 				//	4頂点の時に順番を入れ替える
 				//	N字を描くように
+
 					MY_VERTEX _0 = vartices[3];
 					MY_VERTEX _1 = vartices[2];
 					MY_VERTEX _2 = vartices[0];
@@ -303,7 +304,7 @@ HRESULT CObjLoader::LoadObj(const char* FileName, MY_MESH* pMesh)
 			}
 		}
 	}
-	
+
 	//ファイル終わり
 	fclose(fp);
 
@@ -409,13 +410,16 @@ void CObjLoader::MinAndMax(D3DXVECTOR3 Pos,MY_MESH* pMesh)
 //メッシュ描画
 void CObjLoader::Draw(D3DMATRIX matWorld,MY_MESH* pMesh)
 {
+	float color[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float src[4] = { 0.0f,0.0f,1.0f,1.0f };
+
 	//マテリアルの数毎に描画
 	for (int i = 0; i < pMesh->MaterialNum; i++)
 	{
 		int size = pMesh->Material[i].pVertex.size();
 
 		//シェーダーのセット
-		g_Shader.SetShader(pMesh->Material[i].pTexture, matWorld);
+		g_Shader.SetShader(pMesh->Material[i].pTexture,src,color,matWorld);
 
 		for (int j = 0; j <size; j++)
 		{

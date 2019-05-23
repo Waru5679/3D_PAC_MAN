@@ -20,5 +20,6 @@ public:
 	void Draw();
 private:
 	OBB_Data m_Obb;
+
 };
 

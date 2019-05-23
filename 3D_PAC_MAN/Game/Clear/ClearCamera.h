@@ -9,6 +9,7 @@ class CClearCamera :public Camera
 public:
 	void Init();	//‰Šú‰»
 	void Update();	//XV
+	void Draw();	//•`‰æ
 private:
 };
 

@@ -36,7 +36,7 @@ void CPlayer::Init()
 	m_vLastMove=m_vMove;
 
 	//移動スピード
-	m_fSpeed=0.8f;
+	m_fSpeed=0.5f;
 
 	//カウンタ
 	m_Count = 0;	

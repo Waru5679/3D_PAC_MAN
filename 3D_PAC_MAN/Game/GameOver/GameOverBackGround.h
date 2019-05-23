@@ -2,7 +2,7 @@
 #include "../../LIbrary/CObj.h"
 
 //ゲームオーバー　背景　クラス
-class CGameOverBackGround :public CObj2D
+class CGameOverBackGround :public CObj3D
 {
 public:
 	//コンストラクタ

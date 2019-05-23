@@ -13,12 +13,11 @@ struct MY_VERTEX
 	D3DXVECTOR2 vTex;
 };
 
-//マテリアル構造体
+//オリジナル　マテリアル構造体
 struct MY_MATERIAL
 {
 	//マテリアル名
 	CHAR szName[100];
-
 	D3DXVECTOR3 Ka;//アンビエント(環境光)
 	D3DXVECTOR3 Kd;//ディフューズ(拡散光)
 	D3DXVECTOR3 Ks;//スペキュラー(鏡面反射光）
@@ -47,7 +46,7 @@ struct MY_MESH
 	D3DXVECTOR3 vMax;	//頂点の最大座標
 };
 
-//OBJデータ読み込みクラス
+//Objの読み込みクラス
 class CObjLoader
 {
 public:

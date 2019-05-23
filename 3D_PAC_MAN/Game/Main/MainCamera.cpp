@@ -27,9 +27,6 @@ void CMainCamera::Init()
 	m_vAngle = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	m_vAngleSave=m_vAngle;
 
-	//垂直にするための回転量
-	m_vVertical = D3DXVECTOR3(0.79,0.0f,0.0f);
-
 	//見下ろしフラグ
 	m_bLookingDown=false;
 }
@@ -45,13 +42,11 @@ void CMainCamera::Update()
 		{
 			//見下ろし解除
 			m_vAngle = m_vAngleSave;
-			m_vVertical = D3DXVECTOR3(0.79f, m_vAngle.y, 0.0f);
 		}
 		else
 		{
 			//見下ろし
 			m_vAngleSave = m_vAngle;
-			m_vVertical = D3DXVECTOR3(-4.71f,-1.57f,0.0f);
 		}
 
 		//フラグ反転
@@ -64,14 +59,12 @@ void CMainCamera::Update()
 		//回転
 		if (g_input.GetKeyPush(VK_LEFT) == true)
 		{
-			m_vAngle.y -= 0.2f;
-			m_vVertical.y = m_vAngle.y;
+			m_vAngle.y -= 0.08f;
 		}
 
 		if (g_input.GetKeyPush(VK_RIGHT) == true)
 		{
-			m_vAngle.y += 0.2f;
-			m_vVertical.y = m_vAngle.y;
+			m_vAngle.y += 0.08f;
 		}
 
 		//プレイヤーの位置
@@ -111,4 +104,10 @@ void CMainCamera::Update()
 
 	//頂点シェーダ用のマトリックス作成
 	CreateVSMatrix(&m_vEye, &m_vLook, &m_vUp, &m_matView, &m_matProj, WINDOW_WIDTH, WINDOW_HEIGHT);
+}
+
+//描画
+void CMainCamera::Draw()
+{
+
 }
