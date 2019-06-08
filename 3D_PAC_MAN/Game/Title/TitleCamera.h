@@ -1,10 +1,11 @@
 #pragma once
 
-#include "../../LIbrary/Main.h"
-#include "../../LIbrary/Camera.h"
+//ライブラリファイル
+#include "../../Library/Main.h"
+#include "../../Library/Camera.h"
 
 //タイトルシーン用　カメラクラス
-class CTitleCamera:public Camera
+class CTitleCamera:public CameraBase
 {
 public:
 	void Init();	//初期化

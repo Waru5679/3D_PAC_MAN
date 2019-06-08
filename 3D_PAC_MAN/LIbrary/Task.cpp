@@ -1,27 +1,6 @@
 #include "Task.h"
-
+#include "Struct.h"
 CTask g_Task;
-
-//シーン登録
-void CTask::InsertScene(CScene* pScene, int Id)
-{
-	MY_SCENE scene;
-	scene.m_pScene = pScene;
-	scene.m_Id = Id;
-
-	m_Scene.push_back(scene);
-}
-
-//Mesh登録
-void CTask::Insert(MY_MESH Mesh, int Id)
-{
-	Mesh_Data data;
-	data.m_Mesh = Mesh;
-	data.m_Id=Id;
-
-	m_Mesh.push_back(data);
-}
-
 
 //テクスチャ登録
 void CTask::Insert(ID3D10ShaderResourceView* pTex, int Id,int Width,int Height)
@@ -36,11 +15,11 @@ void CTask::Insert(ID3D10ShaderResourceView* pTex, int Id,int Width,int Height)
 }
 
 //オブジェクト登録
-void CTask::InsertObj(CObj* pObj, int Id)
+void CTask::InsertObj(CObjBase* pObj, int Id)
 {
 	m_Obj.push_back(pObj);
-	pObj->m_id = Id;
-	pObj->m_fDelete = false;
+	pObj->SetId(Id);
+	pObj->SetDelete(false);
 	pObj->Init();
 }
 
@@ -66,7 +45,7 @@ void CTask::ObjDelete()
 	//削除する要素を探す
 	for (unsigned int i = 0; i < m_Obj.size(); i++)
 	{
-		if (m_Obj[i]->m_fDelete == true)
+		if (m_Obj[i]->GetDelete() == true)
 		{
 			DeleteNum.push_back(i);
 		}
@@ -97,16 +76,6 @@ void CTask::Draw()
 	}
 }
 
-//シーン取得
-CScene* CTask::GetScene(int Id)
-{
-	for (unsigned int i = 0; i < m_Scene.size(); i++)
-	{
-		if (m_Scene[i].m_Id == Id)
-			return m_Scene[i].m_pScene;
-	}
-	return NULL;
-}
 
 //テクスチャを取得
 MY_TEXTURE* CTask::GetTex(int Id)
@@ -116,34 +85,25 @@ MY_TEXTURE* CTask::GetTex(int Id)
 		if (m_Tex[i].m_Id == Id)
 			return &m_Tex[i];
 	}
+	return nullptr;
 }
 
 //オブジェクト取得
-CObj* CTask::GetObj(int Id)
+CObjBase* CTask::GetObj(int Id)
 {
 	for (unsigned int i = 0; i < m_Obj.size(); i++)
 	{
-		if (m_Obj[i]->m_id == Id)
+		if (m_Obj[i]->GetId() == Id)
 			return m_Obj[i];
 	}
 	return nullptr;
 }
 
-//メッシュ取得
-MY_MESH CTask::GetMesh(int Id)
-{
-	for (unsigned int i = 0; i < m_Mesh.size(); i++)
-	{
-		if (m_Mesh[i].m_Id == Id)
-			return m_Mesh[i].m_Mesh;
-	}
-}
-
 //メモリの開放
 void CTask::Release()
 {
-	m_Tex.erase(m_Tex.begin(), m_Tex.end());
-	m_Obj.erase(m_Obj.begin(), m_Obj.end());
+	VectorRelease(m_Tex);
+	VectorRelease(m_Obj);
 }
 
 

@@ -7,6 +7,8 @@
 #include <vector>
 using namespace std;
 
+#include "struct.h"
+
 //OBB構造体
 struct OBB_Data
 {
@@ -14,39 +16,29 @@ public:
 	D3DXVECTOR3 Norm[6];	//面の法線
 	D3DXVECTOR3 VerPos[8];	//頂点の位置
 	D3DXVECTOR3 m_Pos;      //位置
-	D3DXVECTOR3 m_Direct[3];//方向ベクトル
-	FLOAT		m_Length[3];//各軸方向の長さ
+	D3DXVECTOR3 m_Direct[3];//各軸の回転
+	FLOAT		m_Length[3];//中心点から面への長さ(各軸方向の長さ)
 	D3DXVECTOR3 vMin;		//Mesh最小値
 	D3DXVECTOR3 vMax;		//Mesh最大値
 	D3DXMATRIX matWorld;
 	int Name;
-	void* p;
-	
+	CObjBase* p;
+
+	MY_MESH* pMesh;	//メッシュポインタ
+		
 	D3DXVECTOR3 m_Angle;
 	D3DXVECTOR3 m_Scale;
-};
-
-//ヒットデータ
-struct HIT_DATA
-{
-	D3DXVECTOR3 vDir;	//方向
-	D3DXVECTOR3 vnDir;	//方向
-	float fDis;			//距離
-
-	//オブジェクトサイズ
-	D3DXVECTOR3 vMin;	
-	D3DXVECTOR3 vMax;
-	void* p;
-
-	OBB_Data* obb;
 };
 
 //OBBクラス
 class COBB
 {
 public:
+	void Init();	//初期化
+	void Release();	//解放
+
 	//OBBセット
-	OBB_Data SetOBB(D3DXVECTOR3 Pos, D3DXVECTOR3 Angle, D3DXVECTOR3 Scale, D3DXVECTOR3 Min, D3DXVECTOR3 Max, int ObjName, void* p);
+	OBB_Data SetOBB(D3DXVECTOR3 Pos, D3DXVECTOR3 Angle, D3DXVECTOR3 Scale, D3DXVECTOR3 Min, D3DXVECTOR3 Max, int ObjName, CObjBase* p);
 
 	//OBB登録
 	void Insert(OBB_Data* obb);
@@ -55,7 +47,7 @@ public:
 	void Update(OBB_Data* obb, D3DXVECTOR3 Pos, D3DXVECTOR3 Angle, D3DXVECTOR3 Scale, D3DXVECTOR3 Min, D3DXVECTOR3 Max);
 
 	//ヒットチェック
-	vector<HIT_DATA> ObjNameHit(OBB_Data* Obb,int Name);
+	bool ObjNameHit(OBB_Data* Obb,int Name);
 
 	//めり込み修正
 	D3DXVECTOR3 NestingCorrection(OBB_Data* StopObb,OBB_Data* MoveObb);
@@ -68,6 +60,12 @@ private:
 
 	//OBBデータ
 	vector<OBB_Data*> m_Data;
+
+	//OBB表示用メッシュ
+	MY_MESH m_Mesh;
+
+	//描画色
+	ColorData m_Color;
 };
 
 extern COBB g_Obb;

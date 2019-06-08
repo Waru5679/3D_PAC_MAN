@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../../LIbrary/Scene.h"
+#include "../../Library/Scene.h"
 
 //ゲームオーバークラス
-class CSceneGameOver :public CScene
+class CSceneGameOver :public CSceneBase
 {
 public:	
 	void Init();	//初期化

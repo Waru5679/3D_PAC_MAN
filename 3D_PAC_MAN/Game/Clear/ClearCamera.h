@@ -4,7 +4,7 @@
 #include "../../LIbrary/Camera.h"
 
 //クリアシーン用　カメラクラス
-class CClearCamera :public Camera
+class CClearCamera :public CameraBase
 {
 public:
 	void Init();	//初期化

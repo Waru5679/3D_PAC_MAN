@@ -24,14 +24,14 @@ void CFood::Init()
 	D3DXMatrixIdentity(&m_matWorld);
 
 	//モデル
-	m_Mesh = g_Task.GetMesh(Model_Food);
+	m_pMesh = g_Loader.GetMesh(Model_Food);
 
 	//最小値・最大値
-	m_vMin = m_Mesh.vMin;
-	m_vMax = m_Mesh.vMax;
+	m_vMin = m_pMesh->vMin;
+	m_vMax = m_pMesh->vMax;
 
 	//当たり判定セット
-	m_Obb = g_Obb.SetOBB(m_vPos, m_vAngle, m_vScale, m_vMin, m_vMax, m_id, this);
+	m_Obb = g_Obb.SetOBB(m_vPos, m_vAngle, m_vScale, m_vMin, m_vMax, GetId(), this);
 	g_Obb.Insert(&m_Obb);
 
 	//ワールド行列作成
@@ -41,12 +41,10 @@ void CFood::Init()
 //更新
 void CFood::Update()
 {
-	vector<HIT_DATA> HitData;
-	HitData = g_Obb.ObjNameHit(&m_Obb, OBJ_PLAYER);
-	
 	//プレイヤーに触れたとき
-	if (HitData.size() > 0)
+	if (g_Obb.ObjNameHit(&m_Obb, OBJ_PLAYER)==true)
 	{
+		//餌取得音
 		g_Audio.StartMusic(Audio_Food_Get);
 
 		//餌のカウント減らす
@@ -54,12 +52,12 @@ void CFood::Update()
 		map->CountAdd(-1);
 		
 		//自身を削除
-		m_fDelete = true;
+		SetDelete(true);
 	}
 }
 
 //描画
 void CFood::Draw()
 {
-	g_Loader.Draw(m_matWorld, &m_Mesh);
+	g_Loader.Draw(m_matWorld, m_pMesh,NULL);
 }

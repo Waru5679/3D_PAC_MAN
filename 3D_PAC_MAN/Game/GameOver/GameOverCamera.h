@@ -4,7 +4,7 @@
 #include "../../LIbrary/Camera.h"
 
 //ゲームオーバーシーン　カメラクラス
-class CGameOverCamera :public Camera
+class CGameOverCamera :public CameraBase
 {
 public:
 	void Init();	//初期化

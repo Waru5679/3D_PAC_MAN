@@ -23,57 +23,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LIbrary\Audio.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Camera.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\CObj.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\DirectX.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Font.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Input.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Main.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Math.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Obb.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\ObjLoader.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Polygon.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Ray.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Route.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Scene.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Shader.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Task.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
-    <ClInclude Include="LIbrary\Trace.h">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Clear\ClearBackGround.h">
       <Filter>ゲーム依存ファイル\Clear</Filter>
     </ClInclude>
@@ -137,53 +86,59 @@
     <ClInclude Include="Game\Main\Wall.h">
       <Filter>ゲーム依存ファイル\Main</Filter>
     </ClInclude>
+    <ClInclude Include="Library\Audio.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Camera.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\CObj.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\DirectX.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Font.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Input.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Main.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Math.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Obb.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\ObjLoader.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Polygon.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Ray.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Route.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Scene.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Shader.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Task.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\SceneInclude.h">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LIbrary\Audio.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\DirectX.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Font.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Input.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Main.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Math.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Obb.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\ObjLoader.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Polygon.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Ray.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Route.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Scene.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Shader.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Task.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
-    <ClCompile Include="LIbrary\Trace.cpp">
-      <Filter>オリジナルライブラリ</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Clear\ClearBackGround.cpp">
       <Filter>ゲーム依存ファイル\Clear</Filter>
     </ClCompile>
@@ -247,10 +202,50 @@
     <ClCompile Include="Game\Main\Wall.cpp">
       <Filter>ゲーム依存ファイル\Main</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="Geometry_Texture.fx">
+    <ClCompile Include="Library\Audio.cpp">
       <Filter>オリジナルライブラリ</Filter>
-    </FxCompile>
+    </ClCompile>
+    <ClCompile Include="Library\DirectX.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Font.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Input.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Main.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Math.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Obb.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\ObjLoader.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Polygon.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Ray.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Route.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Scene.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Shader.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Task.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\SceneInclude.cpp">
+      <Filter>オリジナルライブラリ</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

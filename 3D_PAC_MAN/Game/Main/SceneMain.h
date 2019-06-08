@@ -1,9 +1,10 @@
 #pragma once
 
-#include "../../LIbrary/Scene.h"
+//ライブラリファイル
+#include "../../Library/Scene.h"
 
 //シーンメイン
-class CSceneMain :public CScene
+class CSceneMain :public CSceneBase
 {
 public:
 	

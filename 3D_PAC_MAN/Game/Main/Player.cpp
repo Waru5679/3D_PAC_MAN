@@ -24,11 +24,11 @@ void CPlayer::Init()
 	D3DXMatrixIdentity(&m_matWorld);
 	
 	//モデル
-	m_Mesh = g_Task.GetMesh(Model_Player);
+	m_pMesh = g_Loader.GetMesh(Model_Player);
 
 	//最小値・最大値
-	m_vMin = m_Mesh.vMin;
-	m_vMax = m_Mesh.vMax;
+	m_vMin = m_pMesh->vMin;
+	m_vMax = m_pMesh->vMax;
 
 	//移動ベクトル
 	m_vMove = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
@@ -48,7 +48,7 @@ void CPlayer::Init()
 	m_bPower = false;
 
 	//当たり判定セット
-	m_Obb = g_Obb.SetOBB(m_vPos, m_vAngle, m_vScale, m_vMin, m_vMax, m_id, this);
+	m_Obb = g_Obb.SetOBB(m_vPos, m_vAngle, m_vScale, m_vMin, m_vMax,GetId(), this);
 	g_Obb.Insert(&m_Obb);
 }
 
@@ -89,10 +89,7 @@ void CPlayer::Update()
 	g_Obb.Update(&m_Obb, m_vPos, m_vAngle, m_vScale, m_vMin, m_vMax);
 
 	//壁に当たった時
-	vector<HIT_DATA> HitData;
-	HitData = g_Obb.ObjNameHit(&m_Obb, OBJ_WALL);
-
-	if (HitData.size() > 0)
+	if(g_Obb.ObjNameHit(&m_Obb, OBJ_WALL)==true)
 	{
 		//移動分戻す
 		m_vPos -= m_vMove*m_fSpeed;
@@ -138,5 +135,5 @@ void CPlayer::Input()
 //描画
 void CPlayer::Draw()
 {
-	g_Loader.Draw(m_matWorld, &m_Mesh);
+	g_Loader.Draw(m_matWorld, m_pMesh,NULL);
 }

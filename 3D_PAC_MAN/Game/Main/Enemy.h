@@ -1,14 +1,14 @@
 #pragma once
 
-#include "../../LIbrary/CObj.h"
-#include "../../LIbrary/Obb.h"
-#include "../../LIbrary/Route.h"
+#include "../../Library/CObj.h"
+#include "../../Library/Obb.h"
+#include "../../Library/Route.h"
 
 #include "Player.h"
 #include "Map.h"
 
 //継承用Enemyオブジェクト
-class CEnemy :public CObj3D
+class CEnemy :public CObj3DBase
 {
 public:
 	virtual void Move() = 0;	//移動関数
@@ -26,7 +26,7 @@ protected:
 	bool m_bEat;	//食べられた
 	bool m_bRest;	//休憩フラグ
 	
-	MY_MESH m_RunMesh;	//逃げるときのメッシュデータ
+	MY_MESH* m_pRunMesh;	//逃げるときのメッシュデータ
 	CPlayer* m_pPlayer;	//プレイヤーのポインタ
 	CMap*  m_pMap;		//マップポインタ
 	OBB_Data m_Obb;		//OBBデータ

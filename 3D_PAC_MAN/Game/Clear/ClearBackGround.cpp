@@ -31,6 +31,6 @@ void CClearBackGround::Update()
 //描画
 void CClearBackGround::Draw()
 {
-	CFont::DrawStr(L"CLEAR", 100.0f, 100.0f, 64.0f,0.0f);
-	CFont::DrawStr(L"Enterでタイトルへ", 100.0f, 400.0f, 40.0f,0.0f);
+	g_Font.DrawStr(L"CLEAR", 100.0f, 100.0f, 64.0f,0.0f);
+	g_Font.DrawStr(L"Enterでタイトルへ", 100.0f, 400.0f, 40.0f,0.0f);
 }

@@ -1,10 +1,11 @@
 #pragma once
 
-#include "../../LIbrary/CObj.h"
-#include "../../LIbrary/Obb.h"
+//ライブラリファイル
+#include "../../Library/CObj.h"
+#include "../../Library/Obb.h"
 
 //壁クラス
-class CWall :public CObj3D
+class CWall :public CObj3DBase
 {
 public:
 	//コンストラクタ

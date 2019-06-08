@@ -32,6 +32,6 @@ void CGameOverBackGround::Update()
 //描画
 void CGameOverBackGround::Draw()
 {
-	CFont::DrawStr(L"Enterでタイトルへ", 100.0f, 300.0f, 40.0f,0.0f);
-	CFont::DrawStr(L"GAME_OVER", 25.0f, 100.0f, 64.0f,0.0f);
+	g_Font.DrawStr(L"Enterでタイトルへ", 100.0f, 300.0f, 40.0f,0.0f);
+	g_Font.DrawStr(L"GAME_OVER", 25.0f, 100.0f, 64.0f,0.0f);
 }

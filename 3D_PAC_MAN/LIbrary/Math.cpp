@@ -88,51 +88,25 @@ D3DXVECTOR3 MakeAbsVector3(D3DXVECTOR3 Vec)
 	return out;
 }
 
-//最も長い成分を調べる
-int MostLongComponent(D3DXVECTOR3 Vec)
+//最も長い成分を返す
+float MostLongComponent(D3DXVECTOR3 Vec)
 {
 	Vec=MakeAbsVector3(Vec);
 
 	if (Vec.x > Vec.y)
 	{
 		if (Vec.x > Vec.z)
-			return COMP_X;
+			return Vec.x;
 		else
-			return COMP_Z;
+			return Vec.z;
 	}
 	else
 	{
 		if (Vec.y > Vec.z)
-			return COMP_Y;
+			return Vec.y;
 		else
-			return COMP_Z;
+			return Vec.z;
 	}
-}
-//スクリーン座標から3D座標を求める
-D3DXVECTOR3* CalcScreenToWorld(
-	D3DXVECTOR3* pOut,
-	float Sx,  // スクリーンX座標
-	float Sy,  // スクリーンY座標
-	float fZ,  // 射影空間でのZ値（0～1）
-	int Screen_w,
-	int Screen_h,
-	D3DXMATRIX* matView,
-	D3DXMATRIX* matProj
-) {
-	// 各行列の逆行列を算出
-	D3DXMATRIX InvView, InvPrj, VP, InvViewport;
-	D3DXMatrixInverse(&InvView, NULL, matView);
-	D3DXMatrixInverse(&InvPrj, NULL, matProj);
-	D3DXMatrixIdentity(&VP);
-	VP._11 = Screen_w / 2.0f; VP._22 = -Screen_h / 2.0f;
-	VP._41 = Screen_w / 2.0f; VP._42 = Screen_h / 2.0f;
-	D3DXMatrixInverse(&InvViewport, NULL, &VP);
-
-	// 逆変換
-	D3DXMATRIX tmp = InvViewport * InvPrj * InvView;
-	D3DXVec3TransformCoord(pOut, &D3DXVECTOR3(Sx, Sy, fZ), &tmp);
-
-	return pOut;
 }
 
 //頂点シェーダ用のマトリックスの作成

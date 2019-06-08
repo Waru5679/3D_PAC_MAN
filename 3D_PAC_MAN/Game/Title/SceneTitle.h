@@ -1,9 +1,10 @@
 #pragma once
 
-#include "../../LIbrary/Scene.h"
+//ライブラリファイル
+#include "../../Library/Scene.h"
 
 //シーンタイトル
-class CSceneTitle :public CScene
+class CSceneTitle :public CSceneBase
 {
 public:
 	void Init();	//初期化

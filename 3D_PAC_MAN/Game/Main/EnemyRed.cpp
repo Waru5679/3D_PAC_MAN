@@ -24,14 +24,14 @@ void CEnemyRed::Init()
 	D3DXMatrixIdentity(&m_matWorld);
 
 	//モデル
-	m_Mesh = g_Task.GetMesh(Model_Enemy_Red);
+	m_pMesh = g_Loader.GetMesh(Model_Enemy_Red);
 
 	//最小値・最大値
-	m_vMin = m_Mesh.vMin;
-	m_vMax = m_Mesh.vMax;
+	m_vMin = m_pMesh->vMin;
+	m_vMax = m_pMesh->vMax;
 
 	//イジケモデル
-	m_RunMesh = g_Task.GetMesh(Model_Enemy_Run);
+	m_pRunMesh = g_Loader.GetMesh(Model_Enemy_Run);
 
 	//移動初期化
 	m_vMove = D3DXVECTOR3(0.0f, 0.0, 0.0f);
@@ -63,7 +63,7 @@ void CEnemyRed::Init()
 	m_RestCount = 0;
 
 	//当たり判定セット
-	m_Obb = g_Obb.SetOBB(m_vPos, m_vAngle, m_vScale, m_vMin, m_vMax, m_id, this);
+	m_Obb = g_Obb.SetOBB(m_vPos, m_vAngle, m_vScale, m_vMin, m_vMax, GetId(), this);
 	g_Obb.Insert(&m_Obb);
 
 	//ワールド行列作成
@@ -204,10 +204,10 @@ void CEnemyRed::Draw()
 	//イジケ状態
 	if (m_bRun == true)
 	{
-		g_Loader.Draw(m_matWorld, &m_RunMesh);
+		g_Loader.Draw(m_matWorld, m_pRunMesh,NULL);
 	}
 	else
 	{
-		g_Loader.Draw(m_matWorld, &m_Mesh);
+		g_Loader.Draw(m_matWorld, m_pMesh,NULL);
 	}
 }

@@ -14,8 +14,8 @@
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 480
 
-//シーン読み込み
-void LoadScene();
+//解放
+void Release();
 
 //ウインドウ名
 static WCHAR szAppName[] = L"ライブラリ";

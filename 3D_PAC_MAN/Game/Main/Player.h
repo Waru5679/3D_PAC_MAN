@@ -10,7 +10,7 @@
 #define POWER_TIME 100
 
 //プレイヤークラス
-class CPlayer:public CObj3D
+class CPlayer:public CObj3DBase
 {
 public:
 	CPlayer(D3DXVECTOR3 Pos, D3DXVECTOR3 Angle, D3DXVECTOR3 Scale);
@@ -26,7 +26,7 @@ public:
 	D3DXVECTOR3 GetDir() { return m_vLastMove; }
 
 	bool GetPower() { return m_bPower; }
-
+	
 	//パワー状態
 	void SetPower() 
 	{

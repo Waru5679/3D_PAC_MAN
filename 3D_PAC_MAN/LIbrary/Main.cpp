@@ -9,11 +9,7 @@
 #include "Polygon.h"
 #include "Font.h"
 #include "Audio.h"
-
-#include "../Game/Clear/SceneClear.h"
-#include "../Game/Main/SceneMain.h"
-#include "../Game/GameOver/SceneGameOver.h"
-#include "../Game/Title/SceneTitle.h"
+#include "SceneInclude.h"
 
 using namespace std;
 
@@ -72,7 +68,7 @@ INT WINAPI WinMain( HINSTANCE hInst,HINSTANCE hPrevInst,LPSTR szStr,INT iCmdShow
 	g_Draw.Init();
 
 	//フォント描画初期化
-	CFont::Init();
+	g_Font.Init();
 
 	//音楽初期化
 	g_Audio.Init();
@@ -82,7 +78,7 @@ INT WINAPI WinMain( HINSTANCE hInst,HINSTANCE hPrevInst,LPSTR szStr,INT iCmdShow
     ZeroMemory( &msg, sizeof(msg) );
 		
 	//シーンロード
-	LoadScene();
+	CSceneInclude::LoadScene();
 
 	//スタートシーンセット
 	g_Scene.SetScene(START_SCENE);
@@ -125,14 +121,7 @@ INT WINAPI WinMain( HINSTANCE hInst,HINSTANCE hPrevInst,LPSTR szStr,INT iCmdShow
 			dx.m_pSwapChain->Present(0, 0);
 		}				
 	}
-
-	//メモリ解放
-	g_Audio.Release();	
-	CFont::Release();
-	g_Draw.Release();
-	g_Shader.Release();
-	dx.Release();		
-	
+		
 	return (INT)msg.wParam;
 }
 
@@ -143,6 +132,9 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMsg,WPARAM wParam,LPARAM lParam)
 	{
 	case WM_DESTROY:
 		{
+			//メモリ解放
+			Release();
+		
 			PostQuitMessage(0);
 			break;
 		}
@@ -151,6 +143,9 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMsg,WPARAM wParam,LPARAM lParam)
 			switch (wParam)
 			{
 			case VK_ESCAPE:
+
+				//メモリ解放
+				Release();
 
 				PostQuitMessage(0);
 				break;
@@ -161,23 +156,12 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMsg,WPARAM wParam,LPARAM lParam)
 	return DefWindowProc (hWnd, iMsg, wParam, lParam);	
 }
 
-//シーン読み込み
-void LoadScene()
+//解放
+void Release()
 {
-	//メイン
-	CSceneMain* pMain = new CSceneMain();
-	g_Task.InsertScene(pMain, SceneMain);
-
-	//タイトル
-	CSceneTitle* pTitle = new CSceneTitle();
-	g_Task.InsertScene(pTitle, SceneTitle);
-
-	//クリア
-	CSceneClear* pClear = new CSceneClear();
-	g_Task.InsertScene(pClear, SceneClear);
-
-	//ゲームオーバー
-	CSceneGameOver* pGame = new CSceneGameOver();
-	g_Task.InsertScene(pGame, SceneGameOver);
+	g_Audio.Release();
+	g_Font.Release();
+	g_Draw.Release();
+	g_Shader.Release();
+	dx.Release();
 }
-

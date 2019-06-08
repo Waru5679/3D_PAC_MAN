@@ -14,7 +14,7 @@
 #define ENEMY_PINK 8
 
 //マップクラス
-class CMap :public CObj3D
+class CMap :public CObj3DBase
 {
 public:
 	//初期化

@@ -1,12 +1,16 @@
-#include "../../LIbrary/Camera.h"
-#include "../../LIbrary/Main.h"
-#include "../../LIbrary/Math.h"
-#include "../../LIbrary/Polygon.h"
-#include "../../LIbrary/Task.h"
-#include "../../LIbrary/Input.h"
-#include "../../LIbrary/Font.h"
-#include "../../LIbrary/DirectX.h"
+//ライブラリファイル
+#include "../../Library/Camera.h"
+#include "../../Library/Main.h"
+#include "../../Library/Math.h"
+#include "../../Library/Polygon.h"
+#include "../../Library/Task.h"
+#include "../../Library/Input.h"
+#include "../../Library/Font.h"
+#include "../../Library/DirectX.h"
+#include "../../Library/Struct.h"
+#include "../../Library/Struct.h"
 
+//ゲームファイル
 #include "TitleBackGround.h"
 
 //コンストラクタ
@@ -32,15 +36,17 @@ void CTitleBackGround::Update()
 //描画
 void CTitleBackGround::Draw()
 {
-	float Color[4] = { 1.0f,1.0f,1.0f,1.0f };
-	CFont::DrawStr(L"Enterでスタート", 150.0f, 430.0f, 40.0f,0.0f);
+	ColorData Color(1.0f,1.0f,1.0f,1.0f);
 
-	RECT_F Src,Out;
+	g_Font.DrawStr(L"Enterでスタート", 150.0f, 430.0f, 40.0f,0.0f);
 
-	RectSet(0.0f, 0.0f, 512.0f, 512.0f, &Src);
+	//切り取り位置
+	RECT_F Src(0.0f, 0.0f, 512.0f, 512.0f);
 
-	RectSet(0.0f, 0.0f, WINDOW_WIDTH, WINDOW_HEIGHT, &Out);
+	//描画位置
+	RECT_F Out(0.0f, 0.0f, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	//背景描画
-	g_Draw.Draw2D(0, &Src, &Out, Color, 0.0f);
+	g_Draw.DrawTexture(0, &Src, &Out, &Color ,0.0f);
+	
 }

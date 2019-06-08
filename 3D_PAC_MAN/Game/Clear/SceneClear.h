@@ -3,7 +3,7 @@
 #include "../../LIbrary/Scene.h"
 
 //クリアシーン　
-class CSceneClear :public CScene
+class CSceneClear :public CSceneBase
 {
 public:
 	CSceneClear() {};

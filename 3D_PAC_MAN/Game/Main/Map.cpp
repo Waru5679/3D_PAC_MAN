@@ -113,10 +113,10 @@ void CMap::Draw()
 	 _itow_s(m_feedCount,str,10,10);
 
 	//カウント描画
-	CFont::DrawStr(L"餌残り:", 0.0f, 0.0f, 40.0f,0.0f);
-	CFont::DrawStr(str, 160.0f, 0.0f, 40.0f,0.0f);
+	g_Font.DrawStr(L"餌残り:", 0.0f, 0.0f, 40.0f,0.0f);
+	g_Font.DrawStr(str, 160.0f, 0.0f, 40.0f,0.0f);
 
-	CFont::DrawStr(L"Spaceで視点切り替え", 0.0f, WINDOW_HEIGHT-40.0f, 40.0f, 0.0f);
+	g_Font.DrawStr(L"Spaceで視点切り替え", 0.0f, WINDOW_HEIGHT-40.0f, 40.0f, 0.0f);
 }
 
 //生成関数

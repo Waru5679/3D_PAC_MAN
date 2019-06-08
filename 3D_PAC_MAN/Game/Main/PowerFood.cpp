@@ -1,7 +1,9 @@
-#include "../../LIbrary/Math.h"
-#include "../../LIbrary/Task.h"
-#include "../../LIbrary/ObjLoader.h"
+//ライブラリファイル
+#include "../../Library/Math.h"
+#include "../../Library/Task.h"
+#include "../../Library/ObjLoader.h"
 
+//ゲームファイル
 #include "PowerFood.h"
 
 //コンストラクタ
@@ -22,14 +24,14 @@ void CPowerFood::Init()
 	D3DXMatrixIdentity(&m_matWorld);
 
 	//モデル
-	m_Mesh = g_Task.GetMesh(Model_Power_Food);
+	m_pMesh = g_Loader.GetMesh(Model_Power_Food);
 
 	//最小値・最大値
-	m_vMin = m_Mesh.vMin;
-	m_vMax = m_Mesh.vMax;
+	m_vMin = m_pMesh->vMin;
+	m_vMax = m_pMesh->vMax;
 
 	//当たり判定セット
-	m_Obb = g_Obb.SetOBB(m_vPos, m_vAngle, m_vScale, m_vMin, m_vMax, m_id, this);
+	m_Obb = g_Obb.SetOBB(m_vPos, m_vAngle, m_vScale, m_vMin, m_vMax, GetId(), this);
 	g_Obb.Insert(&m_Obb);
 
 	//プレイヤーのポイント
@@ -48,22 +50,19 @@ void CPowerFood::Update()
 		m_pPlayer = dynamic_cast<CPlayer*> (g_Task.GetObj(OBJ_PLAYER));
 	}
 
-	vector<HIT_DATA> HitData;
-	HitData = g_Obb.ObjNameHit(&m_Obb, OBJ_PLAYER);
-
 	//プレイヤーに触れたとき
-	if (HitData.size() > 0)
+	if(g_Obb.ObjNameHit(&m_Obb, OBJ_PLAYER)==true)
 	{
 		//プレイヤーをパワー状態にする
 		m_pPlayer->SetPower();
 
 		//自身を削除
-		m_fDelete = true;
+		SetDelete(true);
 	}
 }
 
 //描画
 void CPowerFood::Draw()
 {
-	g_Loader.Draw(m_matWorld, &m_Mesh);
+	g_Loader.Draw(m_matWorld, m_pMesh,NULL);
 }

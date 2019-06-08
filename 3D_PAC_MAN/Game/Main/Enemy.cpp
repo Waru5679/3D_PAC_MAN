@@ -1,5 +1,5 @@
-#include "../../LIbrary/Task.h"
-#include "../../LIbrary/Audio.h"
+#include "../../Library/Task.h"
+#include "../../Library/Audio.h"
 
 #include "Enemy.h"
 #include "Map.h"
@@ -59,10 +59,7 @@ void PlayerHit(OBB_Data obb, bool run)
 	if (run == false)
 	{
 		//プレイヤーに当たったならゲームオーバーシーンへ
-		vector<HIT_DATA> HitData;
-		HitData = g_Obb.ObjNameHit(&obb, OBJ_PLAYER);
-
-		if (HitData.size() > 0)
+		if(g_Obb.ObjNameHit(&obb, OBJ_PLAYER)==true)
 		{
 			//ダメージ音
 			g_Audio.StartMusic(Audio_Damage);

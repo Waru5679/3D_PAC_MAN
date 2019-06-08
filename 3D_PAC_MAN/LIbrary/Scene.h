@@ -1,30 +1,48 @@
 #pragma once
 
+#include <vector>
+using namespace std;
+
 //シーンクラス(継承用)
-class CScene
+class CSceneBase
 {
 public:
 	virtual void Init() = 0;	//初期化
 	virtual void Update() = 0;	//更新
 	virtual void Draw()=0;		//描画
 	virtual void Release()=0;	//解放
-
-	int m_id; //シーンID
 private:
 	virtual void LoadAudio() = 0;		//音楽
 	virtual void LoadTexture() = 0;		//テクスチャ
 	virtual void LoadMesh() = 0;		//メッシュ
 };
 
+//シーン管理用構造体
+struct MY_SCENE
+{
+	MY_SCENE(CSceneBase* pScene,int Id)
+	{
+		m_pScene = pScene;
+		m_Id = Id;
+	}
+
+	CSceneBase* m_pScene;	//シーンポインタ
+	int m_Id;				//管理用ID
+};
+
 //シーンマネージャー
 class CSceneManager
 {
 public:
-	void SetScene(int n);	//シーンのセット
-	void Update();			//更新
-	void Draw();			//描画
+	void Update();							//更新
+	void Draw();							//描画
+	void Release();							//解放
+	void Insert(CSceneBase* pScene, int Id);//登録
+	void SetScene(int n);					//シーンのセット
+	CSceneBase* GetScene(int Id);			//シーン取得
 private:
-	CScene* m_pNowScene;	//現在のシーンのポインタ
+	CSceneBase* m_pNowScene;				//現在のシーンのポインタ
+	vector<MY_SCENE*> m_Scene;				//シーンリスト
 };
 
 extern CSceneManager g_Scene;

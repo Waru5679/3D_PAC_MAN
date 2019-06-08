@@ -1,13 +1,15 @@
 #pragma once
 
-#include "../../LIbrary/Main.h"
-#include "../../LIbrary/CObj.h" 
-#include "../../LIbrary/Obb.h"
+//ライブラリファイル
+#include "../../Library/Main.h"
+#include "../../Library/CObj.h" 
+#include "../../Library/Obb.h"
 
+//ゲームファイル
 #include "Player.h"
 
 //パワー餌クラス
-class CPowerFood :public CObj3D
+class CPowerFood :public CObj3DBase
 {
 public:
 	//コンストラクタ

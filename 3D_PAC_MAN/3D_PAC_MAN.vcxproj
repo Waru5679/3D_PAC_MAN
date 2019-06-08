@@ -82,8 +82,8 @@
     <LibraryPath>C:\DirectX\SDK%28Jun2010%29\Lib\x86;$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\DirectX\SDK%28VisualStdio2017用%29\Include;$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\DirectX\SDK%28Jun2010%29\Lib\x64;$(DXSDK_DIR)Lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -165,9 +165,9 @@
     <ClInclude Include="LIbrary\Ray.h" />
     <ClInclude Include="LIbrary\Route.h" />
     <ClInclude Include="LIbrary\Scene.h" />
+    <ClInclude Include="Library\SceneInclude.h" />
     <ClInclude Include="LIbrary\Shader.h" />
     <ClInclude Include="LIbrary\Task.h" />
-    <ClInclude Include="LIbrary\Trace.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Clear\ClearBackGround.cpp" />
@@ -203,14 +203,9 @@
     <ClCompile Include="LIbrary\Ray.cpp" />
     <ClCompile Include="LIbrary\Route.cpp" />
     <ClCompile Include="LIbrary\Scene.cpp" />
+    <ClCompile Include="Library\SceneInclude.cpp" />
     <ClCompile Include="LIbrary\Shader.cpp" />
     <ClCompile Include="LIbrary\Task.cpp" />
-    <ClCompile Include="LIbrary\Trace.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="Geometry_Texture.fx">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
